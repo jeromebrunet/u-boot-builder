@@ -14,7 +14,7 @@ set -o xtrace
 
 # Get the git version
 pushd $1
-GITVERS=`git describe`
+GITVERS=`git describe --always`
 popd
 
 # Generate the atf
