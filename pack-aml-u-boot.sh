@@ -7,18 +7,18 @@ set -o xtrace
 
 # Quick and dirty packing script for concourse CI
 
-#1 is the u-boot directory
+#1 is the u-boot bl33
 #2 is the fip directory
 #3 is the out directory
 #4 is the platform name
+#5 is the version file
 
 # Get the git version
-pushd $1
-GITVERS=`git describe --always`
-popd
+GITVERS=`cat $5`
+
 
 # Generate the atf
-$2/generate-bins.sh $2 $1/u-boot.bin $3 atf.bin
+$2/generate-bins.sh $2 $1 $3 atf.bin
 
 # make the release tarball
 pushd $3
