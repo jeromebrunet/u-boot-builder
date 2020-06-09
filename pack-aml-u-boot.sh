@@ -14,7 +14,7 @@ set -o xtrace
 #5 is the version file
 
 # Get the git version
-GITVERS=`cat $5`
+GITVERS=`cat $5 | sed -e 's/[^A-Za-z0-9._-]/-/g'`
 
 
 # Generate the atf
